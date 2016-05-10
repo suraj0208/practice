@@ -23,9 +23,11 @@ int binarySeach(int arr[],int n){
     return 0;
 }
 
+
 int main(){
     int arr[]={7,8,9,1,2,3,4,5,6};
     cout<<"rotations: "<<binarySeach(arr,sizeof(arr)/sizeof(int))<<endl;
+
     return 0;
 
 }
