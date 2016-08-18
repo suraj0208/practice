@@ -1,6 +1,9 @@
 #include<iostream>
 #include<stdio.h>
+#include<malloc.h>
 using namespace std;
+
+char (* ptr)(int);
 
 int binarySeach(int arr[],int n){
     int low=0,high=n-1,result=-1;
@@ -23,10 +26,28 @@ int binarySeach(int arr[],int n){
     return 0;
 }
 
+class A{
+
+protected:
+    virtual void test(){}
+
+private:
+    int x;
+};
+
+class B:public A{
+
+private:
+    void test(){
+        x=10;
+    }
+};
+
 
 int main(){
     int arr[]={7,8,9,1,2,3,4,5,6};
     cout<<"rotations: "<<binarySeach(arr,sizeof(arr)/sizeof(int))<<endl;
+
 
     return 0;
 

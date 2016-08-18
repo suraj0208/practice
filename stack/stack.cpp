@@ -68,6 +68,29 @@ void insertatbottom(stack *st,int data){
     }
 }
 
+void sortedInsert(stack* st, int temp){
+    if(isEmpty(st) || top(st)<temp){
+        push(st,temp);
+        return;
+    }
+
+    int another = pop(st);
+    sortedInsert(st,temp);
+    push(st,another);
+
+}
+
+void sortstack(stack* st){
+    if(isEmpty(st))
+        return;
+
+    int temp=pop(st);
+    sortstack(st);
+    sortedInsert(st,temp);
+}
+
+
+
 void reverse(stack* st){
     if(isEmpty(st))
         return;
@@ -78,7 +101,7 @@ void reverse(stack* st){
 }
 
 int main(){
-    int data[]={100, 80, 60, 70, 60, 75, 85};
+    int data[]={100, 80, 60, 70, 61, 75, 85};
 
     stack *st;
     create(&st,7);
@@ -89,8 +112,9 @@ int main(){
     //while(!isEmpty(st))
     //    cout<<pop(st)<<" ";
 
-    reverse(st);
+    //reverse(st);
 
+    sortstack(st);
     cout<<endl;
     //stockspan(data,7);
 

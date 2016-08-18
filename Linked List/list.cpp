@@ -200,7 +200,6 @@ node* sortedmerge_recursive(node* head1,node*head2){
 
 node* reverse(node* head, int k){
 
-
     node *current=head,*next=null,*prev=null;
     int count=0;
 
@@ -216,6 +215,17 @@ node* reverse(node* head, int k){
         head->next=reverse(next,k);
 
     return prev;
+
+}
+
+node* reverse_one(node* head){
+    if(head->next==null){
+        return head;
+    }
+    reverse_one(head->next);
+    head->next->next=head;
+    //head->next=NULL;
+    return head;
 
 }
 
@@ -247,9 +257,17 @@ int main(){
     //res=sortedmerge_recursive(head,head1);
     //print(res);
 
-    head=reverse(head,3);
+    //head=reverse(head,3);
+
+    //swap_nodes(&head,8,3);
+
+    reverse_one(head);
 
     print(head);
+
+
+    //swap_nodes(&head,10,1);
+    //print(head);
 
 
     return 0;
