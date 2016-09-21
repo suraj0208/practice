@@ -1,5 +1,13 @@
 #include <iostream>
-#include "build.h"
+
+#define null NULL
+
+struct node{
+    int data;
+    node* left;
+    node* right;
+};
+
 
 using namespace std;
 

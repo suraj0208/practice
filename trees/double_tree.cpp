@@ -3,6 +3,14 @@
 
 using namespace std;
 
+void inorder(node *root){
+    if(root!=null){
+        inorder(root->left);
+        cout<<root->data<<" ";
+        inorder(root->right);
+    }
+}
+
 void double_tree(node* root){
     if(!root)
         return;
@@ -16,46 +24,6 @@ void double_tree(node* root){
 
     double_tree(root->right);
 
-}
-
-int getIndex(int inorder[],int start,int n,int data){
-    for(int i=start;i<n;i++){
-
-        if(inorder[i]==data)
-            return i;
-
-    }
-    return -1;
-}
-
-node* construct(int pre[],int in[],int instart,int inend,int *preindex){
-
-    if(instart==inend){
-        return null;
-    }
-
-    int data = pre[*preindex];
-
-    (*preindex)++;
-
-    int inindex = getIndex(in,instart,inend,data);
-
-    node* temp = new node;
-
-    temp->data=data;
-
-    temp->left=construct(pre,in,instart,inindex,preindex);
-    temp->right=construct(pre,in,inindex+1,inend,preindex);
-
-    return temp;
-}
-
-void inorder(node *root){
-    if(root!=null){
-        inorder(root->left);
-        cout<<root->data<<" ";
-        inorder(root->right);
-    }
 }
 
 int main(){
