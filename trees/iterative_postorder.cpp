@@ -13,49 +13,6 @@ void inorder(node *root){
     }
 }
 
-void postOrderIterative(struct node* root)
-{
-    // Check for empty tree
-    if (root == NULL)
-        return;
-
-    stack<node*> stack;
-    do
-    {
-        // Move to leftmost node
-        while (root)
-        {
-            // Push root's right child and then root to stack.
-            if (root->right)
-                stack.push(root->right);
-
-            stack.push(root);
-
-            // Set root as root's left child
-            root = root->left;
-        }
-
-        // Pop an item from stack and set it as root
-        root = stack.top();
-        stack.pop();
-
-        // If the popped item has a right child and the right child is not
-        // processed yet, then make sure right child is processed before root
-        if (root->right && stack.top() == root->right)
-        {
-            stack.pop();  // remove right child from stack
-            stack.push(root);  // push root back to stack
-            root = root->right; // change root so that the right
-                                // child is processed next
-        }
-        else  // Else print root's data and set root as NULL
-        {
-            cout<<root->data<<" ";
-            root = NULL;
-        }
-    } while (!stack.empty());
-}
-
 void iterative_postorder(node* root){
     stack<node*> st;
 
@@ -71,7 +28,7 @@ void iterative_postorder(node* root){
         root=st.top();
         st.pop();
 
-        if(root->right && st.top()==root->right){
+        if(root->right && st.top()==(root->right)){
             st.pop();
             st.push(root);
             root=root->right;
@@ -99,7 +56,7 @@ int main(){
     inorder(root);
     cout<<endl;
 
-    postOrderIterative(root);
+    iterative_postorder(root);
 
 
     return 0;
