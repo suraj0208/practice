@@ -14,7 +14,7 @@ int find_fixed(int arr[],int low,int high){
     if(mid>arr[mid])
         return find_fixed(arr,mid+1,high);
 
-    return find_fixed(arr,low,mid-1);
+    return find_fixed(arr,low,mid-1 );
 
 
 }
