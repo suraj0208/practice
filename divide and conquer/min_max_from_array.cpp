@@ -53,7 +53,7 @@ minmax findminmax(int arr[],int low,int high){
 
 
 int main(){
-    int arr[]={ 1000,11,445,1,330,3000 };
+    int arr[]={ 1000,11,445,1,330,3000   };
 
     int n = sizeof(arr)/sizeof(arr[0]);
 
