@@ -1,14 +1,12 @@
 #include <iostream>
+#include <queue>
 #include "build.h"
 
 using namespace std;
 
 void top_view(node* root,int* min,int *max){
 
-    if(root==null)
-        return;
 
-    top_view(root->left);
 
 }
 
