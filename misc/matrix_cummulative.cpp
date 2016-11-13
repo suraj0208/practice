@@ -1,9 +1,10 @@
 #include <iostream>
 using namespace std;
 
-void findCummulative(int a[][3],int m, int n){
+void findCummulative(int *a,int m, int n){
     int count[m+1][n+1];
     int row[m+1][n+1];
+
 
     for(int i=1;i<=m;i++){
         count[i][0]=0;
@@ -13,8 +14,8 @@ void findCummulative(int a[][3],int m, int n){
     }
 
     for(int i=1;i<=m;i++){
-        for(int j=1;j<=n;j++){\
-            count[i][j]=count[i][j-1]+a[i][j];
+        for(int j=1;j<=n;j++){
+            count[i][j]=count[i][j-1]+*(a+i*(n+1)+j);
             row[i][j]=row[i-1][j]+count[i][j];
         }
     }
@@ -34,7 +35,7 @@ int main(){
     cin>>m;
     cin>>n;
 
-    int arr[m+1][3];
+    int arr[m+1][n+1];
 
     for(int i=1;i<=m;i++){
         for(int j=1;j<=n;j++){
@@ -42,7 +43,7 @@ int main(){
         }
     }
 
-    findCummulative(arr,m,n);
+    findCummulative((int*)arr,m,n);
 
     return 0;
 }
