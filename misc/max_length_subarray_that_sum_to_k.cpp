@@ -21,9 +21,6 @@ int getMaxLengthSubArray(int arr[],int n,int k){
 
         if(running_sum==k){
             max=fmax(max,j-i);
-            j++;
-            i=j;
-            running_sum=0;
         }
 
         while(i<n && running_sum+arr[j]>k){
@@ -38,10 +35,10 @@ int getMaxLengthSubArray(int arr[],int n,int k){
 
 
 int main(){
-    int arr[] = {1,2,3,3,4};
+    int arr[] = {3,4,1,1,1,2,3,5};
     int n = sizeof(arr)/sizeof(arr[0]);
 
-    cout<<getMaxLengthSubArray(arr,n,7)<<endl;
+    cout<<getMaxLengthSubArray(arr,n,3)<<endl;
 
 
 
